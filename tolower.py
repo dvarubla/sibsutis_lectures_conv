@@ -62,7 +62,7 @@ def replace_to_lower(dirname, basename, replobj):
 		'//*[@style[contains(.,"Symbol")] or '+
 		'@face[contains(.,"Symbol")]]'
 	):
-		if not len(el):
+		if not len(el) and el.text is not None:
 			el.text=replobj["regex"].sub(
 				lambda m: replobj["map"][re.escape(m.group(0))],
 				el.text
